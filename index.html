@@ -2,446 +2,580 @@
 <html lang="en-GB">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Same-day small plumbing fixes in Peterborough. Fixed prices. WhatsApp quote in 2 minutes. Book online with deposit." />
-  <title>Same-Day Plumbing • Peterborough</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b1220" />
+  <meta name="description" content="Fast, fixed-price plumbing in Peterborough. Pick a service, see price, and book an available slot with a deposit." />
+  <link rel="manifest" href="manifest.json" />
+  <title>Plumbing • Peterborough</title>
   <style>
     :root{
-      --bg:#0b1220;
-      --card:#121b2f;
-      --text:#e9eefc;
-      --muted:#b8c2e6;
-      --line:rgba(233,238,252,.12);
+      --bg:#070b14;
+      --text:#eef3ff;
+      --muted:#aeb9dc;
+      --line:rgba(238,243,255,.10);
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --r2: 28px;
       --accent:#6aa6ff;
       --accent2:#7dffb2;
       --warn:#ffcf6a;
-      --shadow: 0 14px 40px rgba(0,0,0,.35);
-      --radius: 18px;
-      --radius2: 24px;
-      --max: 1080px;
       --pad: 18px;
-      --pad2: 28px;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --max: 1120px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(106,166,255,.25), transparent 55%),
-                  radial-gradient(900px 500px at 80% 20%, rgba(125,255,178,.14), transparent 55%),
-                  linear-gradient(180deg, #070b14, var(--bg));
+      font-family:var(--font);
       color:var(--text);
-      font-family:var(--sans);
-      line-height:1.5;
+      background:
+        radial-gradient(900px 520px at 10% 0%, rgba(106,166,255,.22), transparent 55%),
+        radial-gradient(900px 520px at 90% 10%, rgba(125,255,178,.12), transparent 55%),
+        linear-gradient(180deg, #050812, var(--bg));
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
     }
-    a{color:inherit}
-    .wrap{max-width:var(--max); margin:0 auto; padding: 22px var(--pad);}
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 16px var(--pad) 106px;}
     .topbar{
       position: sticky; top:0; z-index:50;
-      backdrop-filter: blur(10px);
-      background: rgba(7,11,20,.65);
+      backdrop-filter: blur(14px);
+      background: rgba(5,8,18,.70);
       border-bottom: 1px solid var(--line);
+      padding: calc(env(safe-area-inset-top) + 10px) var(--pad) 12px;
     }
-    .topbar .wrap{display:flex; align-items:center; justify-content:space-between; gap:14px;}
-    .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
+    .topbar-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
     .logo{
-      width:42px; height:42px; border-radius:14px;
+      width:40px; height:40px; border-radius: 16px;
       background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(125,255,178,.85));
-      box-shadow: 0 10px 24px rgba(0,0,0,.35);
-      position:relative;
+      box-shadow: 0 10px 26px rgba(0,0,0,.35);
+      position:relative; flex: 0 0 auto;
     }
     .logo:after{
-      content:"";
-      position:absolute; inset:10px 11px 11px 10px;
-      border-radius:12px;
-      border:2px solid rgba(11,18,32,.8);
-      opacity:.55;
+      content:""; position:absolute; inset:10px; border-radius: 14px;
+      border: 2px solid rgba(7,11,20,.55); opacity:.7;
     }
-    .brand strong{font-size:15px; letter-spacing:.2px;}
-    .brand span{display:block; font-size:12px; color:var(--muted);}
-    nav{display:flex; gap:12px; align-items:center;}
-    nav a{
-      text-decoration:none;
-      color:var(--muted);
-      font-size:13px;
-      padding:10px 10px;
-      border-radius:12px;
-    }
-    nav a:hover{color:var(--text); background: rgba(233,238,252,.06);}
-    .cta{display:flex; gap:10px; align-items:center;}
-    .btn{
-      display:inline-flex; align-items:center; justify-content:center;
-      gap:10px;
-      padding: 12px 14px;
-      border-radius: 14px;
+    .brand .t1{margin:0; font-size: 14px; font-weight: 900; letter-spacing: .2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .brand .t2{margin:2px 0 0; font-size: 12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
       border: 1px solid var(--line);
-      background: rgba(233,238,252,.06);
+      background: rgba(238,243,255,.06);
       color: var(--text);
-      text-decoration:none;
-      font-weight:600;
-      font-size:14px;
-      white-space:nowrap;
+      font-weight: 800;
+      font-size: 13px;
+      white-space: nowrap;
     }
-    .btn:hover{background: rgba(233,238,252,.1);}
-    .btn.primary{
-      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(106,166,255,.55));
-      border: 1px solid rgba(106,166,255,.35);
-    }
-    .btn.primary:hover{filter: brightness(1.05);}
-    .btn.green{
-      background: linear-gradient(135deg, rgba(125,255,178,.92), rgba(125,255,178,.46));
-      border: 1px solid rgba(125,255,178,.28);
-      color:#06111b;
-    }
-    .btn.green:hover{filter: brightness(1.05);}
-    header.hero{padding: 26px 0 10px;}
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 18px;
-      align-items:stretch;
-    }
-    .card{
-      background: rgba(18,27,47,.78);
+    .pill.secondary{background: rgba(238,243,255,.04); color: var(--muted); font-weight: 750;}
+    .pill svg{opacity:.95}
+
+    .hero{
       border: 1px solid var(--line);
-      border-radius: var(--radius2);
+      background: linear-gradient(180deg, rgba(238,243,255,.06), rgba(238,243,255,.03));
+      border-radius: var(--r2);
       box-shadow: var(--shadow);
       overflow:hidden;
     }
-    .hero-card{padding: var(--pad2);}
-    h1{
-      margin:0 0 10px;
-      font-size: clamp(28px, 3.8vw, 44px);
-      line-height:1.05;
-      letter-spacing:-.6px;
+    .hero-inner{padding: 18px; display:flex; flex-direction:column; gap: 12px;}
+    .hero-title{
+      margin:0;
+      font-size: clamp(22px, 4.6vw, 36px);
+      line-height: 1.05;
+      letter-spacing: -.6px;
     }
-    .sub{
-      color: var(--muted);
-      font-size: 16px;
-      margin: 0 0 18px;
-      max-width: 52ch;
-    }
-    .bullets{
-      display:flex; flex-wrap:wrap; gap:10px;
-      margin: 16px 0 0;
-      padding:0;
-      list-style:none;
-    }
-    .bullets li{
-      font-size:13px;
-      color: var(--text);
-      background: rgba(233,238,252,.06);
+    .hero-sub{margin:0; color: var(--muted); font-size: 15px; max-width: 58ch;}
+    .hero-actions{display:flex; flex-wrap:wrap; gap: 10px; margin-top: 2px;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 12px 14px;
+      border-radius: 16px;
       border: 1px solid var(--line);
-      padding: 9px 10px;
-      border-radius: 999px;
+      background: rgba(238,243,255,.05);
+      color: var(--text);
+      font-weight: 900;
+      font-size: 14px;
+      transition: transform .08s ease, filter .15s ease, background .15s ease;
+      cursor:pointer;
     }
-    .hero-actions{display:flex; flex-wrap:wrap; gap:10px; margin-top: 18px;}
-    .small{
-      font-size:12px; color: var(--muted);
+    .btn:active{transform: scale(.98)}
+    .btn.primary{
+      border-color: rgba(106,166,255,.35);
+      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(106,166,255,.55));
+    }
+    .btn.green{
+      border-color: rgba(125,255,178,.25);
+      background: linear-gradient(135deg, rgba(125,255,178,.92), rgba(125,255,178,.46));
+      color:#06111b;
+    }
+    .btn.ghost{background: transparent;}
+    .btn svg{opacity:.98}
+
+    .section{
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      background: rgba(15,22,40,.72);
+      border-radius: var(--r2);
+      padding: 14px;
+    }
+    .section-h{display:flex; align-items:flex-end; justify-content:space-between; gap: 10px; margin-bottom: 12px;}
+    .section-h h2{margin:0; font-size: 16px; letter-spacing: .2px;}
+    .section-h p{margin:0; color: var(--muted); font-size: 12.5px;}
+    .mini{color: var(--muted); font-size: 12px; line-height:1.5;}
+    .divider{height:1px; background: var(--line); margin: 12px 0;}
+
+    .service-grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .service{
+      border: 1px solid var(--line);
+      background: rgba(11,18,32,.65);
+      border-radius: 24px;
+      padding: 14px;
+      cursor:pointer;
+      overflow:hidden;
+      min-height: 148px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+    }
+    .service:hover{background: rgba(11,18,32,.78)}
+    .service:active{transform: scale(.99)}
+    .row{display:flex; align-items:center; gap: 12px;}
+    .bubble{
+      width: 64px; height: 64px; border-radius: 999px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(80px 80px at 30% 20%, rgba(106,166,255,.20), transparent 60%),
+        radial-gradient(80px 80px at 80% 30%, rgba(125,255,178,.14), transparent 60%),
+        rgba(238,243,255,.04);
+      display:grid; place-items:center; flex: 0 0 auto;
+    }
+    .bubble svg{width: 30px; height: 30px;}
+    .service h3{margin:0; font-size: 14px; line-height: 1.2;}
+    .service .desc{margin:6px 0 0; color: var(--muted); font-size: 12.5px; line-height: 1.35;}
+    .chip{
+      align-self:flex-start;
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 8px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: rgba(238,243,255,.05);
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+    }
+    .chip b{color: var(--text)}
+    .dot{width: 8px; height: 8px; border-radius: 50%; background: var(--accent2); opacity:.9;}
+
+    .view{display:none}
+    .view.active{display:block}
+
+    .detail{
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      background: rgba(15,22,40,.78);
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .detail-top{
+      padding: 14px;
+      display:flex; align-items:center; justify-content:space-between; gap: 12px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(238,243,255,.03);
+    }
+    .back{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(238,243,255,.04);
+      color: var(--text);
+      font-weight: 900;
+      font-size: 13px;
+      cursor:pointer;
+    }
+    .back:active{transform: scale(.98)}
+    .detail-body{
+      padding: 16px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+    }
+    .panel{
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      background: rgba(11,18,32,.60);
+      padding: 14px;
+    }
+    .panel h4{margin:0 0 8px; font-size: 14px;}
+    .panel p{margin:0; color: var(--muted); font-size: 13px; line-height:1.45}
+    .price-row{
+      display:flex; align-items:flex-end; justify-content:space-between; gap: 10px;
+      padding: 12px;
+      border-radius: 18px;
+      border: 1px solid var(--line);
+      background: rgba(238,243,255,.04);
       margin-top: 10px;
     }
-    .side-card{padding: var(--pad2);}
-    .side-card h3{margin:0 0 12px; font-size:15px;}
-    .steps{margin:0; padding-left: 18px; color: var(--muted); font-size:13px;}
-    .steps li{margin:8px 0;}
-    .note{
-      margin-top: 14px;
+    .price-row .label{color: var(--muted); font-size:12.5px; font-weight: 800}
+    .price-row .value{font-size:18px; font-weight: 1000}
+    .hint{
+      margin-top: 10px;
       border-left: 3px solid rgba(255,207,106,.85);
       padding: 10px 12px;
       background: rgba(255,207,106,.08);
-      border-radius: 14px;
+      border-radius: 16px;
       color: var(--muted);
       font-size: 12.5px;
     }
-    section{padding: 18px 0;}
-    .grid2{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
+    .embed{
+      width:100%;
+      min-height: 560px;
+      border: 0;
+      border-radius: 18px;
+      background: rgba(238,243,255,.02);
+      display:none;
+      margin-top: 12px;
     }
-    .grid3{
-      display:grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .section-title{
-      display:flex; align-items:flex-end; justify-content:space-between;
-      gap: 12px;
-      margin: 22px 0 10px;
-    }
-    .section-title h2{margin:0; font-size:20px;}
-    .section-title p{margin:0; color: var(--muted); font-size:13px;}
-    .service{padding: 16px;}
-    .service h4{margin:0 0 6px; font-size:15px;}
-    .service p{margin:0; color:var(--muted); font-size:13px;}
-    .price{
-      font-family: var(--mono);
-      color: var(--accent2);
-      font-weight:700;
-      margin-top: 10px;
-      font-size: 14px;
-    }
-    .faq{padding: 16px;}
-    details{
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      background: rgba(233,238,252,.04);
-      padding: 12px 14px;
-    }
-    summary{cursor:pointer; font-weight:700; font-size:14px;}
-    details p{margin:8px 0 0; color:var(--muted); font-size:13px;}
-    .footer{
-      margin-top: 24px;
-      padding: 18px 0 26px;
+
+    .bottom{
+      position: fixed;
+      left:0; right:0; bottom:0;
+      padding: 10px var(--pad) calc(env(safe-area-inset-bottom) + 10px);
+      background: rgba(5,8,18,.70);
+      backdrop-filter: blur(14px);
       border-top: 1px solid var(--line);
-      color: var(--muted);
-      font-size: 12px;
+      z-index: 60;
     }
-    .mono{font-family: var(--mono);}
-    .pill{
-      display:inline-flex; align-items:center; gap:8px;
-      padding:8px 10px; border-radius:999px;
-      border: 1px solid var(--line);
-      background: rgba(233,238,252,.06);
-      color: var(--muted); font-size: 12px;
+    .bottom-inner{
+      max-width: var(--max);
+      margin:0 auto;
+      display:flex;
+      gap: 10px;
     }
-    .kpi{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px;}
-    .kpi .pill b{color: var(--text);}
-    @media (max-width: 860px){
-      .hero-grid{grid-template-columns: 1fr;}
-      nav{display:none;}
-      .grid3{grid-template-columns:1fr;}
-      .grid2{grid-template-columns:1fr;}
+    .bottom .btn{flex:1}
+
+    @media (max-width: 980px){
+      .service-grid{grid-template-columns: repeat(2, minmax(0, 1fr));}
+      .detail-body{grid-template-columns: 1fr;}
+      .embed{min-height: 640px;}
+    }
+    @media (max-width: 420px){
+      .wrap{padding-left: 14px; padding-right: 14px;}
+      .service-grid{grid-template-columns: 1fr;}
     }
   </style>
 </head>
 <body>
   <div class="topbar">
-    <div class="wrap">
-      <a class="brand" href="#top">
+    <div class="topbar-inner">
+      <div class="brand">
         <div class="logo" aria-hidden="true"></div>
-        <div>
-          <strong>Same-Day Plumbing • Peterborough</strong>
-          <span>Fixed-price small jobs • Fast WhatsApp quoting</span>
+        <div style="min-width:0">
+          <p class="t1" id="brandName">Plumbing</p>
+          <p class="t2" id="brandTag">Peterborough • Fixed prices • Fast WhatsApp quoting</p>
         </div>
-      </a>
-      <nav aria-label="Primary">
-        <a href="#services">Services</a>
-        <a href="#how">How it works</a>
-        <a href="#pricing">Prices</a>
-        <a href="#faq">FAQs</a>
-      </nav>
-      <div class="cta">
-        <!-- Replace the placeholders below -->
-        <a class="btn green" href="https://wa.me/44YOURNUMBER?text=Hi%20I%27d%20like%20a%20quote.%20My%20postcode%20is%20___%20and%20the%20issue%20is%20___" target="_blank" rel="noopener">WhatsApp Quote</a>
-        <a class="btn primary" href="YOUR_BOOKING_LINK" target="_blank" rel="noopener">Book a Slot</a>
       </div>
+      <span class="pill secondary" title="Service area">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M12 21s7-4.35 7-10a7 7 0 1 0-14 0c0 5.65 7 10 7 10Z" stroke="currentColor" stroke-width="2"/>
+          <path d="M12 11a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" stroke="currentColor" stroke-width="2"/>
+        </svg>
+        <span id="areaText">Peterborough</span>
+      </span>
     </div>
   </div>
 
-  <main id="top" class="wrap">
-    <header class="hero">
-      <div class="hero-grid">
-        <div class="card hero-card">
-          <h1>Small plumbing jobs, sorted fast in <span style="color:var(--accent)">Peterborough</span>.</h1>
-          <p class="sub">Fixed prices for common repairs. Send a photo on WhatsApp and get a quote in minutes. Book online with a deposit to lock in a time slot.</p>
-
+  <div class="wrap">
+    <div class="view active" id="home">
+      <section class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">Tap a service. See price. Book a slot.</h1>
+          <p class="hero-sub">App-style design for iPhone + desktop. Your diary runs through your booking provider (you log in and set your hours; customers only see available slots).</p>
           <div class="hero-actions">
-            <a class="btn green" href="https://wa.me/44YOURNUMBER?text=Hi%20I%27d%20like%20a%20quote.%20My%20postcode%20is%20___%20and%20the%20issue%20is%20___" target="_blank" rel="noopener">Message on WhatsApp</a>
-            <a class="btn primary" href="YOUR_BOOKING_LINK" target="_blank" rel="noopener">Choose a service & book</a>
-            <a class="btn" href="#pricing">See prices</a>
-          </div>
-
-          <ul class="bullets" aria-label="Highlights">
-            <li>Same-day slots when available</li>
-            <li>Fixed-price menu for small jobs</li>
-            <li>Deposit to secure the booking</li>
-            <li>Peterborough + local radius</li>
-          </ul>
-
-          <div class="kpi">
-            <span class="pill"><b>Response:</b> fast on WhatsApp</span>
-            <span class="pill"><b>Booking:</b> online slots</span>
-            <span class="pill"><b>Payment:</b> deposit to confirm</span>
-          </div>
-
-          <p class="small">Tip: For unknown faults, book a diagnostic. For clear jobs (tap/toilet/leak), pick a fixed-price service.</p>
-        </div>
-
-        <aside class="card side-card" aria-label="Quick booking guide">
-          <h3>Book in 3 steps</h3>
-          <ol class="steps">
-            <li>Pick the job from the services list.</li>
-            <li>Select a time slot that suits you.</li>
-            <li>Pay the deposit to confirm the booking.</li>
-          </ol>
-          <div class="note">
-            <b style="color:var(--warn)">Fixed-price fairness:</b> prices apply to the described job only. If it’s different on arrival, we’ll explain and agree before any work starts.
-          </div>
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <span class="pill mono">Service area: Peterborough</span>
-            <span class="pill mono">Hours: Mon–Sat</span>
-          </div>
-        </aside>
-      </div>
-    </header>
-
-    <section id="services">
-      <div class="section-title">
-        <div>
-          <h2>Services</h2>
-          <p>Keep it simple: small jobs, fixed prices, quick turnaround.</p>
-        </div>
-        <a class="btn" href="YOUR_BOOKING_LINK" target="_blank" rel="noopener">Book now</a>
-      </div>
-
-      <div class="grid3">
-        <div class="card service">
-          <h4>Tap replacement (like-for-like)</h4>
-          <p>Kitchen or bathroom tap swapped quickly. Customer-supplied or supply-and-fit options.</p>
-        </div>
-        <div class="card service">
-          <h4>Toilet running / not filling</h4>
-          <p>Common internal repairs: fill valve / flush valve issues (where accessible).</p>
-        </div>
-        <div class="card service">
-          <h4>Under-sink leak repairs</h4>
-          <p>Traps, wastes, flexis, and small pipework leaks—fixed neatly.</p>
-        </div>
-        <div class="card service">
-          <h4>Blocked sink / slow drain</h4>
-          <p>Basic unblock and flow restore. If deeper drainage work is needed, we’ll advise.</p>
-        </div>
-        <div class="card service">
-          <h4>Radiator issues</h4>
-          <p>Bleed, diagnose cold spots, and simple valve swaps if suitable.</p>
-        </div>
-        <div class="card service">
-          <h4>Diagnostic visit (unknown faults)</h4>
-          <p>Fixed-fee visit to identify the problem and quote the repair before proceeding.</p>
-        </div>
-      </div>
-    </section>
-
-    <section id="how">
-      <div class="section-title">
-        <div>
-          <h2>How it works</h2>
-          <p>Fast quoting + booked slots = less back-and-forth.</p>
-        </div>
-      </div>
-
-      <div class="grid2">
-        <div class="card service">
-          <h4>1) WhatsApp a photo + postcode</h4>
-          <p>Send a photo/video of the issue, your postcode, and your preferred time window.</p>
-          <div class="hero-actions" style="margin-top:12px">
-            <a class="btn green" href="https://wa.me/44YOURNUMBER?text=Hi%20I%27d%20like%20a%20quote.%20My%20postcode%20is%20___%20and%20the%20issue%20is%20___" target="_blank" rel="noopener">Start WhatsApp chat</a>
+            <a class="btn green" id="waBtn" href="#" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20 11.5a8 8 0 0 1-13.6 5.6L4 18l.9-2.4A8 8 0 1 1 20 11.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              WhatsApp quote
+            </a>
+            <a class="btn primary" id="bookBtn" href="#" target="_blank" rel="noopener">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M8 2v3M16 2v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M3 9h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M5 5h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="2"/>
+              </svg>
+              Book a slot
+            </a>
+            <button class="btn ghost" id="installBtn" type="button">Add to Home Screen</button>
           </div>
         </div>
-        <div class="card service">
-          <h4>2) Pick a service + book a slot</h4>
-          <p>Choose the matching fixed-price job (or diagnostic) and pick an available slot.</p>
-        </div>
-        <div class="card service">
-          <h4>3) Deposit secures the booking</h4>
-          <p>A deposit confirms the slot so you’re not waiting around. The remainder is paid on completion.</p>
-        </div>
-        <div class="card service">
-          <h4>Extra issue check (optional)</h4>
-          <p>Need one more thing looked at? Add a fixed-fee “extra issue check” during the same visit.</p>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <section id="pricing">
-      <div class="section-title">
-        <div>
-          <h2>Prices</h2>
-          <p>Replace £___ with your real prices. Keep it simple and clear.</p>
-        </div>
-      </div>
-
-      <div class="grid2">
-        <div class="card service">
-          <h4>Fixed-price small jobs</h4>
-          <p>These are the jobs you can price confidently.</p>
-          <div class="price">Tap replacement — £___</div>
-          <div class="price">Toilet running / not filling — £___</div>
-          <div class="price">Under-sink leak repair — £___</div>
-          <div class="price">Unblock sink (basic) — £___</div>
-          <div class="price">Radiator bleed / simple checks — £___</div>
+      <section class="section">
+        <div class="section-h">
+          <div>
+            <h2>Services</h2>
+            <p>Tap a bubble to view price + deposit + booking.</p>
+          </div>
+          <span class="pill secondary">Same-day when available</span>
         </div>
 
-        <div class="card service">
-          <h4>Diagnostics & add-ons</h4>
-          <p>Use diagnostics for unknown faults. Add-ons keep extra requests tidy.</p>
-          <div class="price">Diagnostic visit (up to 30 mins) — £___</div>
-          <div class="price">Extra issue check (one additional issue) — £___</div>
-          <p style="margin-top:10px; color:var(--muted); font-size:12.5px;">
-            If the job is different on arrival, we’ll explain and agree the price before any work starts.
-          </p>
-        </div>
-      </div>
-    </section>
+        <div class="service-grid" id="serviceGrid"></div>
 
-    <section id="faq">
-      <div class="section-title">
-        <div>
-          <h2>FAQs</h2>
-          <p>Short, clear answers reduce time-wasters.</p>
-        </div>
-      </div>
+        <div class="divider"></div>
+        <p class="mini">Prices are for the described job only. If it’s different on arrival, we explain and agree before any work starts.</p>
+      </section>
 
-      <div class="grid2">
-        <div class="faq card">
-          <details>
-            <summary>Do you cover my area?</summary>
-            <p>We’re based around Peterborough and cover nearby areas. If you’re unsure, send your postcode on WhatsApp and we’ll confirm.</p>
-          </details>
+      <section class="section">
+        <div class="section-h">
+          <div>
+            <h2>Contact</h2>
+            <p>Fastest response is WhatsApp.</p>
+          </div>
+          <span class="pill secondary" id="yearPill"></span>
         </div>
-        <div class="faq card">
-          <details>
-            <summary>Why do you take a deposit?</summary>
-            <p>Deposits secure the slot and reduce cancellations/no-shows. The remainder is paid on completion.</p>
-          </details>
-        </div>
-        <div class="faq card">
-          <details>
-            <summary>What if it’s worse than it looks in the photo?</summary>
-            <p>No problem — we’ll explain what’s different and agree the price before doing any work.</p>
-          </details>
-        </div>
-        <div class="faq card">
-          <details>
-            <summary>Can you look at another issue while you’re here?</summary>
-            <p>Yes — add the “Extra issue check” for a fixed fee, and we’ll inspect one additional plumbing/heating issue during the visit.</p>
-          </details>
-        </div>
-      </div>
-    </section>
 
-    <section class="footer" aria-label="Footer">
-      <div class="grid2">
-        <div>
-          <div class="mono">Next steps to go live:</div>
-          <ol style="margin:8px 0 0; padding-left:18px;">
-            <li>Replace <span class="mono">44YOURNUMBER</span> with your WhatsApp number (no + sign).</li>
-            <li>Replace <span class="mono">YOUR_BOOKING_LINK</span> with your booking page URL.</li>
-            <li>Replace the £___ prices with your real pricing.</li>
-          </ol>
+        <div style="display:flex; gap:10px; flex-wrap:wrap;">
+          <a class="pill" id="callBtn" href="#">Call</a>
+          <a class="pill secondary" href="#" id="privacyBtn">Privacy</a>
         </div>
-        <div>
-          <div class="mono">Legal / housekeeping:</div>
-          <p style="margin:8px 0 0;">Add a simple privacy note if you collect customer info via forms. Keep all customer data secure.</p>
+
+        <div class="mini" id="privacy" style="display:none; margin-top:12px;">
+          <b>Privacy:</b> We only use your details to respond to your enquiry and manage bookings. We don’t sell your data.
         </div>
-      </div>
-      <p style="margin-top:18px;">© <span id="y"></span> Same-Day Plumbing • Peterborough</p>
-    </section>
-  </main>
+      </section>
+    </div>
+
+    <div class="view" id="detail">
+      <section class="detail">
+        <div class="detail-top">
+          <button class="back" id="backBtn" type="button" aria-label="Back">Back</button>
+          <span class="pill secondary" id="detailPill">Fixed price</span>
+        </div>
+
+        <div class="detail-body">
+          <div class="panel">
+            <div class="row" style="margin-bottom:10px;">
+              <div class="bubble" id="detailIcon" aria-hidden="true"></div>
+              <div style="min-width:0">
+                <h3 style="margin:0; font-size:18px; font-weight: 950;" id="detailTitle">Service</h3>
+                <p style="margin:6px 0 0;" class="mini" id="detailDesc">Description</p>
+              </div>
+            </div>
+
+            <div class="price-row">
+              <div class="label">Fixed price</div>
+              <div class="value" id="detailPrice">£___</div>
+            </div>
+            <div class="price-row">
+              <div class="label">Deposit to book</div>
+              <div class="value" id="detailDeposit">£___</div>
+            </div>
+
+            <div class="hint">If it’s different on arrival, we explain and agree before any work starts.</div>
+            <div class="divider"></div>
+            <p class="mini"><b>Optional add-on:</b> Extra issue check (one additional issue) — £___</p>
+          </div>
+
+          <div class="panel">
+            <h4>Availability & booking</h4>
+            <p>You control your diary in your booking system. Set hours/days off/buffers — customers only see open slots.</p>
+
+            <div class="hero-actions" style="margin-top:12px;">
+              <a class="btn primary" id="detailBookBtn" href="#" target="_blank" rel="noopener">Book this service</a>
+              <a class="btn green" id="detailWaBtn" href="#" target="_blank" rel="noopener">WhatsApp instead</a>
+            </div>
+
+            <iframe class="embed" id="bookingEmbed" title="Booking" src="" loading="lazy"></iframe>
+
+            <div class="divider"></div>
+            <p class="mini"><b>Real “login diary” on your own site</b> needs a backend. The practical way is Square/Calendly handling diary + deposits, and this page links/embeds it.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="bottom-inner">
+      <button class="btn" type="button" id="homeNav">Home</button>
+      <a class="btn primary" id="bottomBook" href="#" target="_blank" rel="noopener">Book</a>
+      <a class="btn green" id="bottomWA" href="#" target="_blank" rel="noopener">WhatsApp</a>
+    </div>
+  </div>
 
   <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // ====== CONFIG (edit these) ======
+    const CONFIG = {
+      businessName: "Same-Day Plumbing",
+      tagline: "Peterborough • Fixed prices • Fast WhatsApp quoting",
+      serviceArea: "Peterborough",
+      whatsappNumber: "44YOURNUMBER",      // e.g. 447123456789
+      bookingLink: "YOUR_BOOKING_LINK",    // your Square/Calendly link
+      bookingEmbedUrl: ""                  // optional embed URL (leave blank if not supported)
+    };
+
+    // Edit your services here
+    const SERVICES = [
+      { id:"tap",   title:"Tap replacement",              desc:"Like-for-like swap. Quick and tidy.",              price:"£___", deposit:"£___", icon:"faucet",   tag:"Fixed price" },
+      { id:"toilet",title:"Toilet running / not filling", desc:"Common internal fixes where accessible.",          price:"£___", deposit:"£___", icon:"toilet",   tag:"Fixed price" },
+      { id:"leak",  title:"Under-sink leak repair",       desc:"Traps, wastes, flexis, small pipework leaks.",    price:"£___", deposit:"£___", icon:"droplet",  tag:"Fixed price" },
+      { id:"block", title:"Blocked sink (basic)",         desc:"Restore flow; deeper drainage quoted if needed.",  price:"£___", deposit:"£___", icon:"swirl",    tag:"Fixed price" },
+      { id:"rad",   title:"Radiator valve / change",      desc:"TRV swap or simple radiator-related fixes.",       price:"£___", deposit:"£___", icon:"radiator", tag:"Fixed price" },
+      { id:"diag",  title:"Diagnostic visit",             desc:"Unknown issue? Fixed-fee diagnose + quote.",       price:"£___", deposit:"£___", icon:"search",   tag:"Diagnostic" }
+    ];
+
+    // Inline icon set
+    const ICONS = {
+      faucet: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 7h10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M9 7V4h6v3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M12 7v6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M6 13h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M7 13v4a3 3 0 0 0 3 3h4a3 3 0 0 0 3-3v-4" stroke="currentColor" stroke-width="2"/></svg>',
+      toilet: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h10v6H7V4Z" stroke="currentColor" stroke-width="2"/><path d="M7 10h10v3a7 7 0 0 1-7 7H9a2 2 0 0 1-2-2v-8Z" stroke="currentColor" stroke-width="2"/><path d="M8 6h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+      droplet: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2s6 6 6 11a6 6 0 0 1-12 0c0-5 6-11 6-11Z" stroke="currentColor" stroke-width="2"/></svg>',
+      swirl: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3c4 0 7 2 7 6s-3 6-7 6-7 1-7 4 2 3 4 3 4-1 4-3-2-3-4-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+      radiator: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M10 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M14 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M18 4v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M4 20h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+      search: '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="currentColor" stroke-width="2"/><path d="M20 20l-4.2-4.2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>',
+    };
+
+    const homeView = document.getElementById("home");
+    const detailView = document.getElementById("detail");
+
+    function show(view){
+      (view === "home" ? homeView : detailView).classList.add("active");
+      (view !== "home" ? homeView : detailView).classList.remove("active");
+      window.scrollTo({top:0, behavior:"instant"});
+    }
+
+    // Apply config
+    document.getElementById("brandName").textContent = CONFIG.businessName;
+    document.getElementById("brandTag").textContent = CONFIG.tagline;
+    document.getElementById("areaText").textContent = CONFIG.serviceArea;
+    document.getElementById("yearPill").textContent = "© " + new Date().getFullYear();
+
+    const waHref = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent("Hi I'd like a quote. My postcode is ___ and the issue is ___")}`;
+    document.getElementById("waBtn").href = waHref;
+    document.getElementById("bottomWA").href = waHref;
+
+    const bookingLink = CONFIG.bookingLink || "#";
+    document.getElementById("bookBtn").href = bookingLink;
+    document.getElementById("bottomBook").href = bookingLink;
+    document.getElementById("detailBookBtn").href = bookingLink;
+
+    document.getElementById("callBtn").href = `tel:+${CONFIG.whatsappNumber}`;
+
+    // Privacy toggle
+    const privacyBtn = document.getElementById("privacyBtn");
+    const privacy = document.getElementById("privacy");
+    privacyBtn.addEventListener("click", (e)=>{ e.preventDefault(); privacy.style.display = privacy.style.display==="none" ? "block" : "none"; });
+
+    // Render services
+    const grid = document.getElementById("serviceGrid");
+    function renderServices(){
+      grid.innerHTML = "";
+      for(const s of SERVICES){
+        const el = document.createElement("div");
+        el.className = "service";
+        el.setAttribute("role","button");
+        el.setAttribute("tabindex","0");
+        const dotColor = s.tag === "Diagnostic" ? "var(--warn)" : "var(--accent2)";
+        el.innerHTML = `
+          <div class="row">
+            <div class="bubble" aria-hidden="true">${ICONS[s.icon] || ICONS.search}</div>
+            <div style="min-width:0">
+              <h3>${s.title}</h3>
+              <p class="desc">${s.desc}</p>
+            </div>
+          </div>
+          <span class="chip"><span class="dot" style="background:${dotColor}"></span><b>${s.price}</b> • ${s.tag}</span>
+        `;
+        el.addEventListener("click", ()=>openDetail(s.id));
+        el.addEventListener("keydown", (ev)=>{ if(ev.key==="Enter"||ev.key===" "){ ev.preventDefault(); openDetail(s.id);} });
+        grid.appendChild(el);
+      }
+    }
+    renderServices();
+
+    function openDetail(id){
+      const s = SERVICES.find(x=>x.id===id) || SERVICES[0];
+      document.getElementById("detailTitle").textContent = s.title;
+      document.getElementById("detailDesc").textContent = s.desc;
+      document.getElementById("detailPrice").textContent = s.price;
+      document.getElementById("detailDeposit").textContent = s.deposit;
+      document.getElementById("detailPill").textContent = s.tag;
+      document.getElementById("detailIcon").innerHTML = ICONS[s.icon] || ICONS.search;
+
+      const wa = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent("Hi I'd like to book: " + s.title + ". My postcode is ___")}`;
+      document.getElementById("detailWaBtn").href = wa;
+
+      const frame = document.getElementById("bookingEmbed");
+      if(CONFIG.bookingEmbedUrl){
+        frame.style.display = "block";
+        frame.src = CONFIG.bookingEmbedUrl;
+      } else {
+        frame.style.display = "none";
+        frame.src = "";
+      }
+
+      history.pushState({view:"detail", id}, "", "#service/" + id);
+      show("detail");
+    }
+
+    document.getElementById("backBtn").addEventListener("click", ()=>{
+      history.pushState({view:"home"}, "", "#home");
+      show("home");
+    });
+    document.getElementById("homeNav").addEventListener("click", ()=>{
+      history.pushState({view:"home"}, "", "#home");
+      show("home");
+    });
+
+    // Install prompt (Android/Chrome). iPhone: Share -> Add to Home Screen.
+    let deferredPrompt = null;
+    const installBtn = document.getElementById("installBtn");
+    installBtn.style.display = "none";
+    window.addEventListener("beforeinstallprompt", (e)=>{
+      e.preventDefault();
+      deferredPrompt = e;
+      installBtn.style.display = "inline-flex";
+    });
+    installBtn.addEventListener("click", async ()=>{
+      if(!deferredPrompt){
+        alert("On iPhone: tap Share → Add to Home Screen.");
+        return;
+      }
+      deferredPrompt.prompt();
+      await deferredPrompt.userChoice;
+      deferredPrompt = null;
+      installBtn.style.display = "none";
+    });
+
+    function route(){
+      const hash = location.hash || "#home";
+      if(hash.startsWith("#service/")){
+        const id = hash.split("/")[1];
+        openDetail(id);
+      } else {
+        show("home");
+      }
+    }
+    window.addEventListener("popstate", route);
+    route();
+
+    if("serviceWorker" in navigator){
+      navigator.serviceWorker.register("sw.js").catch(()=>{});
+    }
   </script>
 </body>
 </html>

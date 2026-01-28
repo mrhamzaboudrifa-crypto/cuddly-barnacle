@@ -1,20 +1,28 @@
-Same-Day Plumbing • Peterborough (1-page website)
+APP-STYLE PLUMBING WEBSITE (2026 look)
 
-FILES
-- index.html (the site)
-- README.txt (this guide)
+This is a static "app-like" site:
+- Circular service icons with symbols
+- Tap service -> detail page (price, deposit, booking)
+- Optional PWA (Add to Home Screen) + offline shell
 
-EDIT THESE PLACEHOLDERS IN index.html
-- 44YOURNUMBER -> your WhatsApp number in international format (UK) without +, e.g. 447123456789
-- YOUR_BOOKING_LINK -> your booking system link (Square/Calendly/etc.)
-- Replace £___ with your real prices
+DIARY / AVAILABILITY:
+GitHub Pages is static hosting (no backend). A real "login diary" + payments needs a backend.
+The practical way:
+- Use Square Appointments / Calendly / similar to handle diary + deposits
+- You log in there and set hours; customers see only available slots
+- This site links to (or can embed) that booking page
 
-PUBLISH FOR FREE (easy options)
-1) GitHub Pages (free):
-   - Create a GitHub account
-   - Create a new repository
-   - Upload index.html
-   - Enable Pages in Settings
+EDIT:
+Open index.html and edit:
+- CONFIG.whatsappNumber (e.g. 447123456789)
+- CONFIG.bookingLink
+- CONFIG.bookingEmbedUrl (optional)
+- SERVICES prices and deposits
 
-2) Netlify Drop (free):
-   - Go to Netlify and drag/drop the site folder or the ZIP contents
+UPLOAD:
+Upload ALL files into repo root:
+- index.html
+- manifest.json
+- sw.js
+- icon.svg
+Then Settings -> Pages -> main / root.
